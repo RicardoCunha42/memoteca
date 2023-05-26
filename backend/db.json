@@ -1,0 +1,22 @@
+{
+  "pensamentos": [
+    {
+      "id": 1,
+      "conteudo": "I'm glad you came, I'm glad you caaame",
+      "autoria": "Nay",
+      "modelo": "modelo3"
+    },
+    {
+      "id": 3,
+      "conteudo": "Angular é o melhor'",
+      "autoria": "Dev Alura",
+      "modelo": "modelo3"
+    },
+    {
+      "conteudo": "Tomas o cara",
+      "autoria": "O cara",
+      "modelo": "modelo3",
+      "id": 4
+    }
+  ]
+}
