@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pensamento } from '../pensamentos';
 import { PensamentoService } from '../pensamento.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-pensamento',
@@ -10,13 +11,56 @@ import { PensamentoService } from '../pensamento.service';
 export class ListarPensamentoComponent implements OnInit {
 
   listaPensamentos: Pensamento[] = [];
+  paginaAtual: number = 1
+  haMaisPensamentos: boolean = true
+  filtro: string = ''
+  favoritos: boolean = false
+  listaFavoritos: Pensamento[] = []
+  titulo: string = 'Meu Mural'
 
-  constructor(private service: PensamentoService) { }
+  constructor(
+    private service: PensamentoService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
-    this.service.listar().subscribe((listaPensamentos) => {
+    this.service.listar(this.paginaAtual, this.filtro, this.favoritos).subscribe((listaPensamentos) => {
       this.listaPensamentos = listaPensamentos;
     });
+  }
+
+  recarregarComponente() {
+    this.paginaAtual = 1
+    this.favoritos = false
+    this.router.navigate([this.router.url])
+  }
+
+  carregarMaisPensamentos() {
+    this.service.listar(++this.paginaAtual, this.filtro, this.favoritos).subscribe(listaPensamentos => {
+      this.listaPensamentos.push(...listaPensamentos)
+      if(!listaPensamentos.length){
+        this.haMaisPensamentos = false
+      }
+    })
+  }
+
+  pesquisarPensamentos() {
+    this.paginaAtual = 1
+    this.service.listar(this.paginaAtual, this.filtro, this.favoritos).subscribe(listaPensamentos => {
+      this.listaPensamentos = listaPensamentos
+    })
+    this.haMaisPensamentos = true
+  }
+
+  listarFavoritos() {
+    this.titulo = 'Meus Favoritos'
+    this.favoritos = true
+    this.haMaisPensamentos = true
+    this.paginaAtual = 1
+    this.service.listar(this.paginaAtual, this.filtro, this.favoritos).subscribe(favoritos => {
+      this.listaPensamentos = favoritos
+      this.listaFavoritos = favoritos
+    })
   }
 
 }

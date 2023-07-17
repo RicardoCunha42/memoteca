@@ -3,20 +3,51 @@
     {
       "id": 1,
       "conteudo": "I'm glad you came, I'm glad you caaame",
-      "autoria": "Nay",
-      "modelo": "modelo3"
+      "autoria": "phil",
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "id": 3,
       "conteudo": "Angular é o melhor'",
       "autoria": "Dev Alura",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": true
     },
     {
       "conteudo": "Tomas o cara",
       "autoria": "O cara",
       "modelo": "modelo3",
+      "favorito": true,
       "id": 4
+    },
+    {
+      "conteudo": "New departures, new arrivals",
+      "autoria": "Matt Fraction",
+      "modelo": "modelo3",
+      "favorito": true,
+      "id": 5
+    },
+    {
+      "conteudo": "     DALE            ",
+      "autoria": "O cara",
+      "modelo": "modelo1",
+      "favorito": false,
+      "id": 6
+    },
+    {
+      "conteudo": "Nice banda",
+      "autoria": "Angus",
+      "modelo": "modelo3",
+      "favorito": false,
+      "id": 7
+    },
+    {
+      "conteudo": "Beautiful daaay",
+      "autoria": "bono",
+      "modelo": "modelo1",
+      "favorito": false,
+      "id": 8
     }
   ]
 }
